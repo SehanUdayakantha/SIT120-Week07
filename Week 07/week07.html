@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week 07</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body style="background-color:gray;">
+<div id="app">
+    {{ message }}
+    <div>
+        <h1>Task1</h1>
+        <h2 style="background-color:aquamarine ;">Component Globally registered given below</h2>
+        <component1></component1>
+        <h2 style="background-color:aqua ;">Component locally registered given below</h2>
+        <component2></component2>
+        <h1>Task2</h1>
+        <h2 style="background-color:aquamarine ;">Props in Component given below</h2>
+        <component3 message="Props"></component3>
+        <h1>Task3</h1>
+        <h2 style="background-color:aqua;">Custom Events in Component given below</h2>
+        <component-a inline-template v-on:changecount="increaseCount">
+            <div>
+                {{message1}}
+                <br>
+                <button @click="$emit('changecount')">Press</button>
+            </div>
+        </component-a>
+        <component-b inline-template>
+            <div>
+                {{message2}}
+            </div>
+        </component-b>
+    </div>
+    <div>
+        Counter: {{count}}
+    </div>
+    <div>
+        <h1>Task4</h1>
+        <h2 style="background-color:aqua;">Slot in Component given below</h2>
+        <component-c>
+           <template v-slot:header>
+           This the top of the Slot
+           </template>
+           The First slot in component three
+           <template v-slot:footer>
+            This the bottom of the Slot
+          </template>
+        </component-c>
+    </div>
+</div>
+
+<script src="./week07part3.js"></script>
+
+</body>
+</html>
